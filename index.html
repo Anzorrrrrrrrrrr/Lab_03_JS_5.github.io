@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JavaScript Functions Demo</title>
+    
+</head>
+<body>
+    <h1>JavaScript Functions Demo</h1>
+
+    <!-- Task 5.1: Delete Last Character -->
+    <h2>Task 5.1: Delete Last Character</h2>
+    <p id="elem">Цей текст буде змінено.</p>
+    <button onclick="deleteLastChar()">Натисни для видалення останнього символу</button>
+
+    <!-- Task 5.2: Individual Functions -->
+    <h2>Task 5.2: Individual Functions</h2>
+
+    <!-- 5.2.1: getProperty -->
+    <h3>5.2.1: getProperty</h3>
+    <button onclick="testGetProperty()">Test getProperty</button>
+    <p id="output-5-2-1">Result: </p>
+
+    <!-- 5.2.2: addProperty -->
+    <h3>5.2.2: addProperty</h3>
+    <button onclick="testAddProperty()">Test addProperty</button>
+    <p id="output-5-2-2">Result: </p>
+
+    <!-- 5.2.3: removeProperty -->
+    <h3>5.2.3: removeProperty</h3>
+    <button onclick="testRemoveProperty()">Test removeProperty</button>
+    <p id="output-5-2-3">Result: </p>
+
+    <!-- 5.2.4: getFullName -->
+    <h3>5.2.4: getFullName</h3>
+    <button onclick="testGetFullName()">Test getFullName</button>
+    <p id="output-5-2-4">Result: </p>
+
+    <!-- 5.2.5: getLengthOfWord -->
+    <h3>5.2.5: getLengthOfWord</h3>
+    <button onclick="testGetLengthOfWord()">Test getLengthOfWord</button>
+    <p id="output-5-2-5">Result: </p>
+
+    <!-- 5.2.6: getLengthOfTwoWords -->
+    <h3>5.2.6: getLengthOfTwoWords</h3>
+    <button onclick="testGetLengthOfTwoWords()">Test getLengthOfTwoWords</button>
+    <p id="output-5-2-6">Result: </p>
+
+    <!-- 5.2.7: isGreaterThan -->
+    <h3>5.2.7: isGreaterThan</h3>
+    <button onclick="testIsGreaterThan()">Test isGreaterThan</button>
+    <p id="output-5-2-7">Result: </p>
+
+    <!-- 5.2.8: isEven -->
+    <h3>5.2.8: isEven</h3>
+    <button onclick="testIsEven()">Test isEven</button>
+    <p id="output-5-2-8">Result: </p>
+
+    <!-- 5.2.9: isSameLength -->
+    <h3>5.2.9: isSameLength</h3>
+    <button onclick="testIsSameLength()">Test isSameLength</button>
+    <p id="output-5-2-9">Result: </p>
+
+    <!-- 5.2.10: isEvenAndGreaterThanTen -->
+    <h3>5.2.10: isEvenAndGreaterThanTen</h3>
+    <button onclick="testIsEvenAndGreaterThanTen()">Test isEvenAndGreaterThanTen</button>
+    <p id="output-5-2-10">Result: </p>
+
+    <!-- 5.2.11: computeAreaOfATriangle -->
+    <h3>5.2.11: computeAreaOfATriangle</h3>
+    <button onclick="testComputeAreaOfATriangle()">Test computeAreaOfATriangle</button>
+    <p id="output-5-2-11">Result: </p>
+
+    <script>
+        // Task 5.1: Delete Last Character
+        function deleteLastChar() {
+            var str = document.getElementById("elem").textContent;
+            var result = str.slice(0, -1);
+            document.getElementById("elem").textContent = result;
+            console.log("Оновлений текст: " + result);
+        }
+
+        // Task 5.2 Functions
+
+        // 5.2.1: getProperty
+        function getProperty(obj, key) {
+            return obj[key];
+        }
+        function testGetProperty() {
+            var obj = { key: "value" };
+            var output = getProperty(obj, "key");
+            console.log(output); // -> "value"
+            document.getElementById("output-5-2-1").textContent = "Result: " + output;
+        }
+
+        // 5.2.2: addProperty
+        function addProperty(obj, key) {
+            obj[key] = true;
+            return obj[key];
+        }
+        function testAddProperty() {
+            var myObj = {};
+            addProperty(myObj, "myProperty");
+            console.log(myObj.myProperty); // -> true
+            document.getElementById("output-5-2-2").textContent = "Result: " + myObj.myProperty;
+        }
+
+        // 5.2.3: removeProperty
+        function removeProperty(obj, key) {
+            delete obj[key];
+        }
+        function testRemoveProperty() {
+            var obj = { name: "Sam", age: 28 };
+            removeProperty(obj, "name");
+            console.log(obj.name); // -> undefined
+            document.getElementById("output-5-2-3").textContent = "Result: " + (obj.name === undefined ? "undefined" : obj.name);
+        }
+
+        // 5.2.4: getFullName
+        function getFullName(firstName, lastName) {
+            return firstName + " " + lastName;
+        }
+        function testGetFullName() {
+            var output = getFullName("Joe", "Smith");
+            console.log(output); // -> "Joe Smith"
+            document.getElementById("output-5-2-4").textContent = "Result: " + output;
+        }
+
+        // 5.2.5: getLengthOfWord
+        function getLengthOfWord(word) {
+            return word.length;
+        }
+        function testGetLengthOfWord() {
+            var output = getLengthOfWord("some");
+            console.log(output); // -> 4
+            document.getElementById("output-5-2-5").textContent = "Result: " + output;
+        }
+
+        // 5.2.6: getLengthOfTwoWords
+        function getLengthOfTwoWords(word1, word2) {
+            return word1.length + word2.length;
+        }
+        function testGetLengthOfTwoWords() {
+            var output = getLengthOfTwoWords("some", "words");
+            console.log(output); // -> 9
+            document.getElementById("output-5-2-6").textContent = "Result: " + output;
+        }
+
+        // 5.2.7: isGreaterThan
+        function isGreaterThan(num1, num2) {
+            return num1 > num2;
+        }
+        function testIsGreaterThan() {
+            var output = isGreaterThan(11, 10);
+            console.log(output); // -> true
+            document.getElementById("output-5-2-7").textContent = "Result: " + output;
+        }
+
+        // 5.2.8: isEven
+        function isEven(num) {
+            return num % 2 === 0;
+        }
+        function testIsEven() {
+            var output = isEven(11);
+            console.log(output); // -> false
+            document.getElementById("output-5-2-8").textContent = "Result: " + output;
+        }
+
+        // 5.2.9: isSameLength
+        function isSameLength(word1, word2) {
+            return word1.length === word2.length;
+        }
+        function testIsSameLength() {
+            var output = isSameLength("words", "super");
+            console.log(output); // -> true
+            document.getElementById("output-5-2-9").textContent = "Result: " + output;
+        }
+
+        // 5.2.10: isEvenAndGreaterThanTen
+        function isEvenAndGreaterThanTen(num) {
+            return num % 2 === 0 && num > 10;
+        }
+        function testIsEvenAndGreaterThanTen() {
+            var output = isEvenAndGreaterThanTen(12);
+            console.log(output); // -> true
+            document.getElementById("output-5-2-10").textContent = "Result: " + output;
+        }
+
+        // 5.2.11: computeAreaOfATriangle
+        function computeAreaOfATriangle(height, base) {
+            return 0.5 * base * height;
+        }
+        function testComputeAreaOfATriangle() {
+            var output = computeAreaOfATriangle(5, 4);
+            console.log(output); // -> 10
+            document.getElementById("output-5-2-11").textContent = "Result: " + output;
+        }
+    </script>
+</body>
+</html>
